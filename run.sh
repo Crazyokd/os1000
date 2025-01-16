@@ -12,7 +12,7 @@ $CC $CFLAGS -Wl,-Tuser.ld -Wl,-Map=shell.map -o shell.elf shell.c user.c common.
 $OBJCOPY --set-section-flags .bss=alloc,contents -O binary shell.elf shell.bin
 $OBJCOPY -Ibinary -Oelf32-littleriscv shell.bin shell.bin.o
 
-(cd disk && tar cf ../disk.tar --format=ustar ./*.txt)
+(cd disk && tar cf ../disk.tar --format=ustar *.txt)
 
 # Build the kernel
 $CC $CFLAGS -Wl,-Tkernel.ld -Wl,-Map=kernel.map -o kernel.elf \
